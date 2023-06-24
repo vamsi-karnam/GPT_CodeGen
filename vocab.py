@@ -16,6 +16,8 @@ import torchtext
 from torchtext.data import BucketIterator, Iterator, Field
 from torchtext import data
 
+import pickle
+
 SEED = 6174
 
 np.random.seed(SEED)
@@ -28,6 +30,8 @@ Input = data.Field(tokenize='spacy', init_token='', eos_token='', lower=True)
 Output = data.Field(tokenize=main.augment_tokenize_py_code, init_token='', eos_token='', lower=False)
 
 fields = [('Input', Input),('Output', Output)]
+
+#print("Code reached part 1")
 
 """
 The augmented data has the potential to increase vocublary beyond initial data, so we need to capture as many variations as possible
@@ -53,6 +57,8 @@ for i in range(train_val.val_df.shape[0]):
     except:
         pass
 
+#print("Code reached part 2")
+
 train_data = data.Dataset(train_example, fields)
 val_data = data.Dataset(val_example, fields)
 
@@ -60,4 +66,19 @@ Input.build_vocab(train_data, min_freq=0)
 Output.build_vocab(train_data, min_freq=0)
 Output.vocab
 
-print(Output.vocab)
+#print(Output.vocab)
+
+#print("Code reached end")
+
+def save_vocab(vocab, path):
+    output = open(path, 'wb')
+    pickle.dump(vocab, output)
+    output.close()
+    print("Saved both vocab files succesfully")
+
+
+# Saving the vocabulary files for future use
+#save_vocab(Input.vocab, "/Users/vamsi/Desktop/Learning/My Git/GPT_CodeGen/vocab/src_vocab.pkl")
+#save_vocab(Output.vocab, "/Users/vamsi/Desktop/Learning/My Git/GPT_CodeGen/vocab/trg_vocab.pkl")
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')                                   # Use GPU if available
