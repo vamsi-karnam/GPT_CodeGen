@@ -26,6 +26,7 @@ import random
 import math
 import time
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')                                   # Use GPU if available
 
 # Opening the file to read it:
 f = open("pycode.txt","r", encoding="utf8")

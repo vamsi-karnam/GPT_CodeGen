@@ -65,8 +65,11 @@ val_data = data.Dataset(val_example, fields)
 
 Input.build_vocab(train_data, min_freq=0)
 Output.build_vocab(train_data, min_freq=0)
+
+Input.vocab
 Output.vocab
 
+#print(input.vocab)
 #print(Output.vocab)
 
 #print("Code reached end")
@@ -78,8 +81,6 @@ def save_vocab(vocab, path):
     print("Saved both vocab files succesfully")
 
 
-# Saving the vocabulary files for future use
+# Saving the vocabulary files for future use -- Use in training
 #save_vocab(Input.vocab, "/Users/vamsi/Desktop/Learning/My Git/GPT_CodeGen/vocab/src_vocab.pkl")
 #save_vocab(Output.vocab, "/Users/vamsi/Desktop/Learning/My Git/GPT_CodeGen/vocab/trg_vocab.pkl")
-
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')                                   # Use GPU if available
