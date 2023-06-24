@@ -1,3 +1,7 @@
+"""
+In this file we parse the data and create an augmenting tokenizer for our python data.
+"""
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -111,8 +115,8 @@ def augment_tokenize_py_code(py_code_string, mask_factor = 0.3):
     
     return tokenized_output
 
-tokenized_aug_sample = augment_tokenize_py_code(dps[1]['solution'])
-print ("Masked and tokenized datapoint no. 1: ", tokenized_aug_sample)
+# tokenized_aug_sample = augment_tokenize_py_code(dps[1]['solution'])
+#print ("Masked and tokenized datapoint no. 1: ", tokenized_aug_sample)
 
-untokenized_aug_sample = untokenize(tokenized_aug_sample).decode('utf-8')
-print ("Masked datapoint no.1: ", untokenized_aug_sample)
+# untokenized_aug_sample = untokenize(tokenized_aug_sample).decode('utf-8')
+#print ("Masked datapoint no.1: ", untokenized_aug_sample)
