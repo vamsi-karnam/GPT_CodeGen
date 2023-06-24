@@ -8,6 +8,10 @@ import train_val
 import vocab
 import transformer
 
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
 import pickle
 
 # Loading the pre-saved vocabulary files from vocab.py
@@ -32,14 +36,24 @@ DEC_DROPOUT = 0.1
 enc = transformer.Encoder(INPUT_DIM, HID_DIM, ENC_LAYERS, ENC_HEADS, ENC_PF_DIM, ENC_DROPOUT, main.device)
 dec = transformer.Decoder(OUTPUT_DIM, HID_DIM, DEC_LAYERS, DEC_HEADS, DEC_PF_DIM, DEC_DROPOUT, main.device)
 
-print(out_vocab.__dict__['freqs'])
+#print(out_vocab.__dict__['freqs'])
 
 SRC_PAD_IDX = in_vocab.stoi[vocab.Input.pad_token]
 TRG_PAD_IDX = out_vocab.stoi[vocab.Output.pad_token]
 
 model = transformer.Seq2Seq(enc, dec, SRC_PAD_IDX, TRG_PAD_IDX, main.device).to(main.device)
 
+# Counting the trainable parameters (~ 5 to 10 million params)
 def count_params(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
-print("The model has ", count_params(model), " trainable parameters")
+#print("The model has ", count_params(model), " trainable parameters")
+
+def init_weights(m):
+    if hasattr(m, 'weight') and m.weight.dim()>1:
+        nn.init.xavier_uniform_(m.weight.data)
+
+model.apply(init_weights)
+
+LEARNING_RATE = 0.0005
+optimiser = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
