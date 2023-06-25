@@ -50,7 +50,7 @@ class EncoderLayer(nn.Module):
 
         self.self_attn_layer_norm = nn.LayerNorm(hid_dim)
         self.ff_layer_norm = nn.LayerNorm(hid_dim)
-        self.elf_attention = MultiHeadAttentionLayer(hid_dim, n_heads, dropout, device)
+        self.self_attention = MultiHeadAttentionLayer(hid_dim, n_heads, dropout, device)
         self.positionwise_feedforward = PositionwiseFeedforwardLayer(hid_dim, pf_dim, dropout)
         self.dropout = nn.Dropout(dropout)
 
@@ -238,7 +238,7 @@ class Seq2Seq(nn.Module):
         return trg_mask
 
     def forward(self, src, trg):
-                
+
         src_mask = self.make_src_mask(src)
         trg_mask = self.make_trg_mask(trg)
         enc_src = self.encoder(src, src_mask)

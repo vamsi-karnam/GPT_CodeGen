@@ -42,7 +42,7 @@ for a wide vocabulary. Say, we augment the dataset 100 or 150 times to capture t
 train_example = []
 val_example = []
 
-train_expansion_scale = 150
+train_expansion_scale = 100
 
 for i in range(train_expansion_scale):                                      #Only expanding the training set
     for j in range(train_val.train_df.shape[0]):
@@ -81,6 +81,6 @@ def save_vocab(vocab, path):
     print("Saved both vocab files succesfully")
 
 
-# Saving the vocabulary files for future use -- Use in training
+# Saving the vocabulary files for future use -- Use in training (Change the directory fields before running)
 #save_vocab(Input.vocab, "/Users/vamsi/Desktop/Learning/My Git/GPT_CodeGen/vocab/src_vocab.pkl")
 #save_vocab(Output.vocab, "/Users/vamsi/Desktop/Learning/My Git/GPT_CodeGen/vocab/trg_vocab.pkl")
