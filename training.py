@@ -79,4 +79,4 @@ model.apply(init_weights)
 LEARNING_RATE = 0.0005
 optimiser = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
-print("Trained the seq2seq model on the vocabulary successfully")
+#print("Trained the seq2seq model on the vocabulary successfully")
