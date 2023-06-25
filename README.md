@@ -9,9 +9,11 @@
   1. The data can be augmented by changing variable names in the default code to avoid overtraining the code generator on specific variable names.
   2. Additional data can be added or substituted to make the model understand inherent logic and syntax.
   3. Adding different logical or syntactical versions of the same code can improve the models understanding of code.
+  4. Epochs, Batch size and Learning rate are to be tweaked with to get the perfect trained model. 
+     (Epochs ~ 10, Batch size ~ 16, Learning rate ~ 0.0005)
 
 ### Instructions:
-- To train and run the model on your own machine:
+- Train and run the model on your own machine:
 1. Clone the repo to your directory.
 2. Run the Python files in the following order:
     - First run main.py.
@@ -20,3 +22,4 @@
     - Run the training.py file to train the model.
     - Change the batch size, number of epochs, and directory as necessary and run model.py.
 3. After successfully completing the steps you should find the model saved in the "model" directory.
+4. Change the paths where necessary and run the file codegen.py to finally test the functionality.
