@@ -20,6 +20,6 @@
     - Next, run the train_val.py.
     - Next, Uncomment the save functionality in vocab.py and run the vocab.py file with the correct path for vocab files.
     - Run the training.py file to train the model.
-    - Change the batch size, number of epochs, and directory as necessary and run model.py.
+    - Change the batch size, number of epochs, and directory paths as necessary and run model.py.
 3. After successfully completing the steps you should find the model saved in the "model" directory.
 4. Change the paths where necessary and run the file codegen.py to finally test the functionality.
