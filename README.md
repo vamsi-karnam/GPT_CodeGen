@@ -24,7 +24,8 @@
 3. After successfully completing the steps you should find the model saved in the "model" directory.
 4. Change the paths where necessary and run the file codegen.py to finally test the functionality.
 
-### Sample Results
+
+### Sample Results:
 
 Sample 1:
 
