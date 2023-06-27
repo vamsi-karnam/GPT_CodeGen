@@ -27,9 +27,11 @@
 ### Sample Results
 
 Sample 1:
+
 Input: “sort a list of dictionaries by key”
 
 Output:
+```python
 var_1 ={'Name1':{'roll':25 ,'marks':50 },
 'Name2':{'roll':26 ,'marks':67 },
 'Name3':{'roll':30 },'marks':48 }}
@@ -37,10 +39,14 @@ var_key = 'marks'
 res = 'marks'
 res = var_2 (test_dict .items (),key =lambda x :x [1 ][var_key ])
 print ("The sorted dictionary by marks is : " + str(res))
+```
 
 Sample 2:
+
 Input: “reverse given string”
 
 Output:
+```python
 var_str ='Reversing this string'
 var_str [::-1 ]
+```
